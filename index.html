@@ -82,22 +82,69 @@
 
 var counter = 0;
 
+var firstNum = "";
+var secondNum = "";
+var userPick= "";
+
+
+
+// + - * / 
+var operator = "";
+
+var plus = "+";
+var minus = "-";
+var mult = "*";
+var division="/";
+var exponents = "^";
+var equals = "=";
+
 
 
 $(".number").on("click", function(event){
     var pressedKey = event.key;
+    
+    
     var userPick = $(this).val();
-    counter++;
     
+    // nextNum = nextNum + userPick;
+    
+    if (!operator){
+        firstNum = userPick + firstNum;
+        secondNum = "";
+    }else{ secondNum = userPick + secondNum
+        firstNum = "";
+    }
+
     
 
-    $("#result").text(userPick)
-   
+    console.log( firstNum, secondNum);
+
+     
+
+    // $("#result").text(nextNum)
     
-
-
+    
+    
 
 });
+
+
+$(".operator").on("click", function (event){
+var pressedKey = event.key;
+userPick = $(this).val();
+if (firstNum){
+    firstNum="";
+}else{//eval
+}
+$("#result").text(userPick);
+
+
+
+})
+
+
+
+
 
 </script>
 
